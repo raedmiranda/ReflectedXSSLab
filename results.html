@@ -89,7 +89,7 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <form
+                    <form onsubmit="return navigate()" 
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search w-100">
                         <div class="input-group input-group-lg">
                             <input type="text" class="form-control bg-light border-0" placeholder="Buscar..."
@@ -207,6 +207,15 @@
             $('#searchTerm span').text('Ningún término buscado');
         
         $('#searchText').text(searchTerm);
+        
+        function navigate(e, a) {
+            let userInputText = $('#txtSearchTerm').val();
+            // alert(userInputText);
+            document.location='./results.html?search=' + userInputText;
+            return false;
+        }
+
+        $('#btnSearch').on('click', navigate);
     </script>
 
 </body>

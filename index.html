@@ -89,7 +89,7 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <form
+                    <form onsubmit="return navigate()"
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search w-100">
                         <div class="input-group input-group-lg">
                             <input type="text" class="form-control bg-light border-0" placeholder="Buscar..."
@@ -124,6 +124,7 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                        <h3> <small>IMPORTANTE</small>  Cambie el nombre de usuario por su nombre </h3>
                     </div>
 
                     <!-- Content Row -->
@@ -336,10 +337,11 @@
     <script src="js/demo/chart-pie-demo.js"></script>
 
     <script>
-        let navigate = function(e, a){
+        function navigate(e, a) {
             let userInputText = $('#txtSearchTerm').val();
             // alert(userInputText);
             document.location='./results.html?search=' + userInputText;
+            return false;
         }
 
         $('#btnSearch').on('click', navigate);
